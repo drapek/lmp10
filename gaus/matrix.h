@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 typedef struct {
-	int rn;
+    int rn;
     int cn;
     double *e;
 } matrix_t;

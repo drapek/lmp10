@@ -5,6 +5,7 @@
 
 double fun( double x ) {
 				double r= ((double)rand() - RAND_MAX/2.0)/RAND_MAX/5; // +-10%
+				printf("[r = %d] \n", r);
 				return (1+r)*(10*x*x*x*x+5*x*x*x+x*x);
 }
 

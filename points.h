@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 typedef struct {
-		int n;
+		int n; /*wejściowa ilośc punktów*/
 		double *x;
 		double *y;
 } points_t;
