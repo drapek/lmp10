@@ -33,7 +33,7 @@ poch1_legendre(int i, double x)
     else if( i == 1) 
 	   return 1;
     else
-	   return ( 2 * n - 1)/ n * poch1_legendre(i - 1, x) - (n - 1) / n * poch1_legendre(i - 2, x);
+	   return ( 2 * i - 1) * poch1_legendre(i - 1, x) / i - (i - 1) * poch1_legendre(i - 2, x) / i;
 
 }
 
@@ -48,7 +48,7 @@ poch2_legendre( int i, double x)
     else if(i == 2)
 	   return 3; /*bo wielomian o indeksie 2, zróżniczkowany dwukrotnie wyniesie 3*/
     else
-	   return ( 2 * n - 1)/ n * poch2_legendre(i - 1, x) - (n - 1) / n * poch2_legendre(i - 2, x);
+	   return ( 2 * i - 1) * poch2_legendre(i - 1, x) / i- (i - 1) * poch2_legendre(i - 2, x) / i;
 
 }
 
@@ -65,7 +65,7 @@ poch3_legendre(int i, double x)
     else if(i == 3)
 	   return 15;  /*bo wielomian o indeksie 3, zróżniczkowany trzykrotnie wyniesie 15*/
     else
-	   return ( 2 * n - 1)/ n * poch3_legendre(i - 1, x) - (n - 1) / n * poch3_legendre(i - 2, x);
+	   return ( 2 * i - 1) * poch3_legendre(i - 1, x) / i - (i - 1) * poch3_legendre(i - 2, x) / i;
 
 }
 
