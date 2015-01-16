@@ -1,0 +1,7 @@
+1. tworzymy plik punktów komendą: 
+    ./aprox -spl -p test/dane.1 -g myplot -f 5.1 -t 5.7 -n 300
+
+2. w gnuplot:
+    set term png
+    set output "wykres.png"
+    plot  'test/dane.1', 'myplot'

@@ -1,5 +1,5 @@
 aprox: main.o splines.o points.o aproksymator_na_Legendre.o gaus/libge.a
-	$(CC) -o aprox -ggdb main.o splines.o points.o aproksymator_na_Legendre.o -L gaus -l ge -lm
+	$(CC) -o aprox -ggdb main.o splines.o points.o aproksymator_na_Legendre.o -L gaus -l ge
 
 intrp: main.o splines.o points.o interpolator.o gaus/libge.a
 	$(CC) -o intrp  main.o splines.o points.o interpolator.o -L gaus -l ge
