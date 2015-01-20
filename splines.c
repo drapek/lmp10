@@ -61,3 +61,23 @@ value_spl (spline_t * spl, double x)
 	+ dx * dx / 2 *  spl->f2[i] 
 	+ dx * dx * dx / 6 * spl->f3[i];
 }
+
+int
+free_spl( spline_t * spl )
+{
+    free(spl->f3);
+    free(spl->f2);
+    free(spl->f1);
+    free(spl->f);
+    free(spl);
+    
+    /*sprawdza czy została uwolniona pamięć*/
+    if(spl->f3 == NULL
+    && spl->f2 == NULL
+    && spl->f1 == NULL
+    && spl->f == NULL
+    && spl == NULL)
+	   return 0;
+    else 
+	   return 1;
+}
