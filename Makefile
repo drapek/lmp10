@@ -1,8 +1,9 @@
+CC = cc -ggdb 
 aprox_legen: main.o splines.o points.o aproksymator_na_Legendre.o gaus/libge.a
-	$(CC) -o aprox -ggdb main.o splines.o points.o aproksymator_na_Legendre.o -L gaus -l ge
+	$(CC) -o aprox_legen -ggdb main.o splines.o points.o aproksymator_na_Legendre.o -L gaus -l ge
 
-aprox: main.o splines.o points.o aproksymator_na_bazie.o gaus/libge.a
-     $(CC) -o aprox main.o splines.o points.o aproksymator_na_bazie.o -L gaus -l ge
+aprox: main.o splines.o points.o aproksymator_na_bazie.o gaus/libge.a 
+	$(CC) -o aprox main.o splines.o points.o aproksymator_na_bazie.o -L gaus -l ge
 
 intrp: main.o splines.o points.o interpolator.o gaus/libge.a
 	$(CC) -o intrp  main.o splines.o points.o interpolator.o -L gaus -l ge
@@ -14,7 +15,7 @@ aproksymator_na_Legendre.o: makespl.h points.h gaus/piv_ge_solver.h
 	$(CC) -I gaus -c aproksymator_na_Legendre.c
 
 proksymator_na_bazie.o: makespl.h points.h gaus/piv_ge_solver.h
-     $(CC) -I gaus -c aproksymator_na_bazie.c
+	$(CC) -I gaus -c aproksymator_na_bazie.c
 
 interpolator.o: makespl.h points.h gaus/piv_ge_solver.h
 	$(CC) -I gaus -c interpolator.c

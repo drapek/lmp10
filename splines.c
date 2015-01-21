@@ -65,18 +65,33 @@ value_spl (spline_t * spl, double x)
 int
 free_spl( spline_t * spl )
 {
-    free(spl->f3);
-    free(spl->f2);
-    free(spl->f1);
-    free(spl->f);
-    free(spl);
-    
+    if( spl->f3 != NULL ) {
+	   free(spl->f3);
+	   spl->f3 = NULL;
+    }
+     if( spl->f2 != NULL ) {
+	   free(spl->f2);
+	   spl->f2 = NULL;
+    }
+      if( spl->f1 != NULL ) {
+	   free(spl->f1);
+	   spl->f1 = NULL;
+    } 
+     if( spl->f != NULL ) {
+	   free(spl->f);
+	   spl->f = NULL;
+    }
+     if( spl->x != NULL ) {
+	   free(spl->x);
+	   spl->x = NULL;
+    }
+    spl->n = 0; /*bo od teraz nie ma żadnych elementów*/ 
     /*sprawdza czy została uwolniona pamięć*/
     if(spl->f3 == NULL
     && spl->f2 == NULL
     && spl->f1 == NULL
     && spl->f == NULL
-    && spl == NULL)
+    && spl->x == NULL)
 	   return 0;
     else 
 	   return 1;

@@ -10,5 +10,5 @@ typedef struct {
 } points_t;
 
 int read_pts_failed ( FILE* inf, points_t *pts);
-
+int free_pts ( points_t * pts );
 #endif

@@ -33,7 +33,7 @@ main (int argc, char **argv)
   double fromX = 0;
   double toX = 0;
   int n = 100;
-	char *progname= argv[0];
+  char *progname= argv[0];
 
   points_t pts;
   spline_t spl;
@@ -117,11 +117,12 @@ main (int argc, char **argv)
                inp);
       exit (EXIT_FAILURE);
     }
+    fclose(splf);
   } else { /* ponts were not given nor spline was given -> it is an error */
     fprintf (stderr, usage, argv[0]);
     exit (EXIT_FAILURE);
   }
-
+  
   if (spl.n < 1) { /* check if there is a valid spline */
     fprintf (stderr, "%s: bad spline: n=%d\n\n", argv[0], spl.n);
     exit (EXIT_FAILURE);
@@ -158,6 +159,11 @@ main (int argc, char **argv)
 
     fclose (gpf);
   }
+    /*free alloc memory at spl structure*/
+    if ( free_spl(&spl) ) 
+	   fprintf(stderr, "[ERR] Problem at freeing memory of spl lines structure! \n");
+    if ( free_pts(&pts) )
+	   fprintf(stderr, "[ERR] Problem at freeing memory of pts structure! \n");
 
   return 0;
 }
